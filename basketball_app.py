@@ -19,7 +19,8 @@ selected_year = st.sidebar.selectbox('Year', list(reversed(range(1950, 2022))))
 
 @st.cache
 def load_data(year):
-    url = "https://www.basketball-reference.com/leagues/NBA_2021_totals.html"
+    url = "https://www.basketball-reference.com/leagues/NBA_" + \
+        str(selected_year) + "_totals.html"
     html = pd.read_html(url, header=0)
     df = html[0]
     raw = df.drop(df[df.Age == 'Age'].index)
