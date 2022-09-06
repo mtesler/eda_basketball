@@ -35,7 +35,8 @@ st.write(player_stats)
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(player_stats.Tm.unique())
-selected_team = st.sidebar.multiselect('Team', sorted_unique_team)
+selected_team = st.sidebar.multiselect(
+    'Team', sorted_unique_team, sorted_unique_team)
 
 # Sidebar - Position selection
 unique_position = ['C', 'PF', 'SF', 'PG', 'SG']
