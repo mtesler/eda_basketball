@@ -46,4 +46,6 @@ selected_position = st.sidebar.multiselect(
 df_selected_options = player_stats[(player_stats.Tm.isin(
     selected_team)) & (player_stats.Pos.isin(selected_position))]
 
+st.header('Display Player Stats of Selected Team(s)')
+
 st.write(df_selected_options)
