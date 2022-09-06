@@ -47,5 +47,6 @@ df_selected_options = player_stats[(player_stats.Tm.isin(
     selected_team)) & (player_stats.Pos.isin(selected_position))]
 
 st.header('Display Player Stats of Selected Team(s)')
-
+st.write('Data Dimension: ' + str(df_selected_options.shape[0]) + ' rows and ' + str(
+    df_selected_options.shape[1]) + ' columns')
 st.write(df_selected_options)
