@@ -1,3 +1,4 @@
+from operator import index
 import streamlit as st
 import pandas as pd
 import base64
@@ -50,3 +51,16 @@ st.header('Display Player Stats of Selected Team(s)')
 st.write('Data Dimension: ' + str(df_selected_options.shape[0]) + ' rows and ' + str(
     df_selected_options.shape[1]) + ' columns')
 st.write(df_selected_options)
+
+# Download csv file with NBA player stats data
+
+
+def file_download(df):
+    csv = df.to_csv(index=False)
+    # strings <-> bytes conversions
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Download CSV File</a>'
+    return href
+
+
+st.markdown(file_download(df_selected_options), unsafe_allow_html=True)
