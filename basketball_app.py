@@ -66,6 +66,7 @@ def file_download(df):
 st.markdown(file_download(df_selected_options), unsafe_allow_html=True)
 
 # Heatmap
+st.header('Intercorrelation Matrix Heatmap')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 df_selected_options.to_csv('output.csv', index=False)
 df = pd.read_csv('output.csv')
